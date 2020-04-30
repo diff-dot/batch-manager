@@ -4,8 +4,7 @@ import { BatchJob } from './BatchJob';
 import { InstanceDiscarder } from './ec2/InstanceDiscarder';
 import { InstanceIpManager } from './ec2/InstanceIpManager';
 import PromiseUtils from './utils/PromiseUtils';
-import { LoggerFactory, LoggerConfig } from '@diff./logger-factory';
-import { ConfigManager } from '@diff./config-manager';
+import { LoggerFactory, LoggerOptions } from '@diff./logger-factory';
 import { Timer } from '@diff./timer';
 
 const HOLDED_JOB_WAIT_INTERVAL = 1000;
@@ -33,16 +32,16 @@ export class BatchManager {
    */
   constructor(args: {
     jobName: string;
-    config: ConfigManager<LoggerConfig>;
+    loggerOptions?: LoggerOptions;
     asgNames?: string[];
     caputerConsoleLog?: boolean;
     region?: string;
     enableDiscarder?: boolean;
     enableIpManager?: boolean;
   }) {
-    const { jobName, config, asgNames, caputerConsoleLog = true, region, enableDiscarder = true, enableIpManager = true } = args;
+    const { jobName, loggerOptions, asgNames, caputerConsoleLog = true, region, enableDiscarder = true, enableIpManager = true } = args;
 
-    const loggerFactory = new LoggerFactory(config);
+    const loggerFactory = new LoggerFactory(loggerOptions);
     this.logger = loggerFactory.create({ groupDepthedName: ['batch', jobName], region });
     if (caputerConsoleLog) LoggerFactory.captureConsoleMessage(this.logger);
 

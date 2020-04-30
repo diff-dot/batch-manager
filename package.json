@@ -1,6 +1,6 @@
 {
   "name": "@diff./batch-manager",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -18,7 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "@diff./config-manager": "^1.1.4",
-    "@diff./logger-factory": "^1.0.3",
+    "@diff./logger-factory": "^2.0.1",
     "@diff./timer": "^1.0.0",
     "@types/cron": "^1.7.2",
     "cron": "^1.8.2",
