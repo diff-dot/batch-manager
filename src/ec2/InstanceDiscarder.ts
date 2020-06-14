@@ -10,7 +10,7 @@ import { ConfigManager } from '@diff./config-manager';
 const RETRY_INTERVAL = 10 * 1000;
 
 // 지정된 시간동안 Discard 가 완료되지 않을 경우 인스턴스 강제 삭제
-const DISCARD_TIMEOUT = 180 * 1000;
+const DISCARD_TIMEOUT = 600 * 1000;
 
 export class InstanceDiscarder {
   private assignedAsgNames?: string[];
