@@ -1,6 +1,7 @@
 module.exports = {
-  require: ['test/env.ts', 'ts-node/register'],
+  require: ['ts-node/register', 'test/env.ts', 'test/bootstrap.ts'],
   'full-trace': true,
   recursive: true,
-  timeout: 20000000
+  timeout: 20000000,
+  reporter: 'spec'
 };
