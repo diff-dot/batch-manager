@@ -159,7 +159,7 @@ export class InstanceDiscarder {
 
   private isSupervisionProcess(): boolean {
     try {
-      fs.writeFileSync(this.pidFile(), process.pid, { flag: 'wx' });
+      fs.writeFileSync(this.pidFile(), process.pid.toString(), { flag: 'wx' });
     } catch (e) {
       const spid = parseInt(fs.readFileSync(this.pidFile(), 'utf8'));
       if (spid === process.pid) return true;

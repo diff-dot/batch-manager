@@ -3,5 +3,6 @@ module.exports = {
   'full-trace': true,
   recursive: true,
   timeout: 20000000,
-  reporter: 'spec'
+  reporter: 'spec',
+  extensions: ['ts']
 };
